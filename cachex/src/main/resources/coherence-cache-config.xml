@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<cache-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.oracle.com/coherence/coherence-cache-config"
+	xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config
+   coherence-cache-config.xsd">
+	<caching-scheme-mapping>
+		<cache-mapping>
+			<cache-name>local-*</cache-name>
+			<scheme-name>local-scheme</scheme-name>
+		</cache-mapping>
+	</caching-scheme-mapping>
+	<caching-schemes>
+		<local-scheme>
+			<scheme-name>local-scheme</scheme-name>
+			
+			<!-- docs: http://docs.oracle.com/cd/E24290_01/coh.371/e22840/localcache.htm -->
+			<!-- docs: http://docs.oracle.com/cd/E24290_01/coh.371/e22837/cache_config.htm#sthref31 -->
+	
+			<!-- Contains the maximum number of units that can be placed in the cache, 
+				when pruning (removing objects from the cache) takes place the default 
+				value of 75% of the high-units is pruned -->
+			<high-units>5000</high-units>
+
+			<!-- Specifies the amount of time since the last update that entries are 
+				kept by the cache before being expired. -->
+			<expiry-delay>120m</expiry-delay>  <!-- m - minutes -->
+
+			<!-- during creation of the cache no elements should be automatically loaded -->
+			<pre-load>false</pre-load>
+		</local-scheme>
+	</caching-schemes>
+</cache-config>

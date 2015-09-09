@@ -1,0 +1,79 @@
+package com.sample
+ 
+import com.sample.DroolsTest.Message;
+import com.sample.model.*;
+import java.util.Date;
+import java.util.Calendar;
+ 
+rule "Hello World"
+	when
+		m : Message( status == Message.HELLO, myMessage : message )
+	then
+		System.out.println( myMessage ); 
+		m.setMessage( "Goodbye cruel world" );
+		m.setStatus( Message.GOODBYE );
+		update( m );
+end
+
+rule "GoodBye"
+	when
+		Message( status == Message.GOODBYE, myMessage : message )
+	then
+		System.out.println( myMessage );
+end
+
+rule "JanuariRule"
+	when
+        context : PurchaseContext(  month  == Calendar.JANUARY )
+	then
+			System.out.println( context +"m1:" + context.getPurchaseDate().get(Calendar.MONTH) );
+end
+
+rule "FebruariRule"
+	when
+        context : PurchaseContext(  month  == Calendar.FEBRUARY )
+	then
+			System.out.println( context +"m2:" + context.getPurchaseDate().get(Calendar.MONTH) );
+end
+
+rule "MondayRule"
+ date-effective "01-jan-2011"
+ activation-group "sale"
+	when
+		p : Product(  )
+		price : Price(  )
+		date : String(  )   
+	then
+		System.out.println( "caclulating price for " + p.getName() + " on " + date );
+		price.setPrice(p.getBasicPrice());
+		price.setReduction( java.math.BigDecimal.ZERO ); 
+end
+
+
+
+rule "WinterSale2010"
+ date-effective "01-jan-2011"
+ activation-group "sale"
+	when
+		p : Product(  )
+		price : Price(  )
+		date : Date(  )   
+	then
+		System.out.println( "caclulating price for " + p.getName() + " on " + date );
+		price.setPrice(p.getBasicPrice());
+		price.setReduction( java.math.BigDecimal.ZERO ); 
+end
+
+rule "SummerSale2011"
+ date-effective "01-jan-2011"
+ activation-group "sale"
+	when
+		p : Product(  )
+		price : Price(  )
+		date : Date(  ) 
+	then
+		System.out.println( "caclulating price for " + p.getName() + " on " + date );
+		price.setPrice(p.getBasicPrice());
+		price.setReduction( java.math.BigDecimal.ZERO ); 
+end
+

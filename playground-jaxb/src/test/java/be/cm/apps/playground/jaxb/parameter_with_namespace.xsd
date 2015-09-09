@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://be.cm.apps.playground/model/parameter1" 
+	 	xmlns:tns="http://be.cm.apps.playground/model/parameter1">
+	<!-- The root element -->
+	<element name="parameter">
+		<complexType>
+			<sequence>
+				<element ref="tns:name" />
+				<element ref="tns:value"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="name" type="string" />
+	<element name="value" type="string" />
+
+</schema>

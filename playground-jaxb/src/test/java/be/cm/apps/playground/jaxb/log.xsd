@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://be.cm.playground/model/log"
+	targetNamespace="http://be.cm.playground/model/log" 
+	elementFormDefault="qualified">
+
+	<!-- schema for the test log.xml samples This version uses nested elements -->
+	<!-- The root element -->
+	<element name="LogHistory">
+		<complexType>
+			<sequence>
+				<element ref="tns:MESSAGE" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="MESSAGE">
+		<complexType>
+			<sequence>
+				<element name="HEADER">
+					<complexType>
+						<sequence>
+							<element name="TSTZ_ORIGINATING" type="dateTime" />
+							<element name="COMPONENT_ID" type="string" />
+							<element name="MSG_ID" type="string" minOccurs="0"/>
+							<element name="MSG_TYPE">
+								<complexType>
+									<attribute name="TYPE" type="string" />
+								</complexType>
+							</element>
+							<element name="MSG_LEVEL" type="short" />
+							<element name="HOST_ID" type="string" />
+							<element name="HOST_NWADDR" type="string" />
+							<element name="MODULE_ID" type="string" />
+							<element name="THREAD_ID" type="string" />
+							<element name="USER_ID" type="string" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="CORRELATION_DATA">
+					<complexType>
+						<sequence>
+							<element name="EXEC_CONTEXT_ID">
+								<complexType>
+									<sequence>
+										<element name="UNIQUE_ID" type="string" />
+										<element name="SEQ" type="short"  />
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="PAYLOAD">
+					<complexType>
+						<sequence>
+							<element name="MSG_TEXT" type="string" />
+							<element name="SUPPL_DETAIL" type="string" minOccurs="0"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

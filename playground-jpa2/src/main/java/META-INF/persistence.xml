@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="testjpa2" transaction-type="RESOURCE_LOCAL">
+		<class>be.cm.apps.playground.testjpa2.model1.UserInfo</class>
+		<class>be.cm.apps.playground.testjpa2.model1.ParameterList</class>
+		<class>be.cm.apps.playground.testjpa2.model1.Parameter</class>
+		<class>be.cm.apps.playground.testjpa2.model1.Configuration</class>
+		<class>be.cm.apps.playground.testjpa2.model2.Property1</class>
+		<class>be.cm.apps.playground.testjpa2.model2.Property2</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Ivan\MyDB;create=true" />
+			<property name="javax.persistence.jdbc.user" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="eclipselink.target-database" value="Derby"/>
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="testjpa2-test"
+		transaction-type="RESOURCE_LOCAL">
+		<class>be.cm.apps.playground.testjpa2.model1.UserInfo</class>
+		<class>be.cm.apps.playground.testjpa2.model1.Parameter</class>
+		<class>be.cm.apps.playground.testjpa2.model1.Configuration</class>
+		<class>be.cm.apps.playground.testjpa2.model3.Property1</class>
+		<class>be.cm.apps.playground.testjpa2.model3.Property2</class>
+		<class>be.cm.apps.playground.testjpa2.model1.ParameterList</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Ivan\MyDB;create=true" />
+			<property name="javax.persistence.jdbc.user" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+		</properties>
+	</persistence-unit>
+</persistence>

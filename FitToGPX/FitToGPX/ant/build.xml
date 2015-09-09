@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project FitToGPX">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/devenv/java/working/fit/FitToGPX/bin/FitToGPX.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="be.ib.fit.FitToGPX"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/devenv/java/working/fit/FitToGPX/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devenv/java/eclipse-3.6.1/plugins/org.junit_4.8.1.v4_8_1_v20100427-1100/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devenv/java/eclipse-3.6.1/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+        </jar>
+    </target>
+</project>
